@@ -20,26 +20,60 @@ FPS     = 30
 BG_COLOUR = [0, 0, 0]
 IS_RUNNING = True
 
+
 class blauwdruk:
     
-    _points = 0
+    hp = 10
     lives = 5
+    speed = 10
+    item = None
 
     def __init__(self, lives):
-        self.lives = lives
 
-print('test')
+        self.lives = lives
+        self.speed = speed
+
+    def walk(self):
+        print("Het Character loopt met een snelheid van:", self.speed)
+#---------------------------------------------------------
+
+#Tests in interface of het werkt:
+testPlayer = blauwdruk
 print("blauwdruk.lives: ", blauwdruk.lives)
 
-player1 = blauwdruk
-player1.lives = 10
 
-print("player1.lives: ", player1.lives)
-        
+class player(blauwdruk):
+
+    money = 15
+    points = 0
+
+    def __init__(self):
+        super().__init__
+
+        self.lives = 30
+        self.speed = 20
+    
+    def walk(self):
+        print("Mario loopt heel anders, maar wel met de snelheid", self.speed)
+
+    def jump(self):
+        print("Mario springt")
+#---------------------------------------------------------    
+#Tests in interface of het werkt:
+player1 = player()
+
+print("player1 lives:", player1.lives)
+print("player1 speed:", player1.speed)
+
+
+
+
+
 
 playerSprite = pygame.image.load("../Art/spr_Player.png")
-playerRect = playerSprite.get_rect()    
-playerSpeed = 50
+playerRect = playerSprite.get_rect()  
+
+playerSpeed = player1.speed
 
 
 while IS_RUNNING:
